@@ -246,8 +246,11 @@ control 'postgres-08' do
   # describe postgres_session(USER, PASSWORD, HOST).query('\dp pg_catalog.pg_authid') do
   #   its('output') { should eq 'pg_catalog | pg_authid | table | postgres=arwdDxt/postgres |' }
   # end
+  # describe sql.query('\dp pg_catalog.pg_authid', ['postgres']) do
+  #   its('output') { should eq 'pg_catalog | pg_authid | table | postgres=arwdDxt/postgres |' }
+  # end
   describe sql.query('\dp pg_catalog.pg_authid', ['postgres']) do
-    its('output') { should eq 'pg_catalog | pg_authid | table | postgres=arwdDxt/postgres |' }
+    its('output') { should eq 'pg_catalog | pg_authid | table | rdsadmin=arwdDxt/rdsadmin |' }
   end
 end
 
