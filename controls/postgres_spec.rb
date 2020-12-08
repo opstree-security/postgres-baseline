@@ -742,10 +742,10 @@ control 'postgres-30' do
   # its('output') { should_not   eq 'disabled' }
   # end
   describe sql.query('show ssl_cert_file;', ['postgres']) do
-    its('output') {  should  cmp 'disabled' }
+    its('output') {  should_not  match 'disabled' }
   end
   describe sql.query('show ssl_key_file;', ['postgres']) do
-    its('output') {  should  cmp 'disabled' }
+    its('output') {  should_not  match 'disabled' }
   end
 end
 
